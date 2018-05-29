@@ -28,5 +28,26 @@ exports.reply = function(req, res, next){
                 json: true
             });
         }
+        if (event.type == 'message' && event.message.text == 'こんにちは'){
+            var headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+            }
+            var body = {
+                replyToken: event.replyToken,
+                messages: [{
+                    type: 'text',
+                    text: 'ちわ'
+                }]
+            }
+            var url = 'https://api.line.me/v2/bot/message/reply';
+            request({
+                url: url,
+                method: 'POST',
+                headers: headers,
+                body: body,
+                json: true
+            });
+        }
     }
   };
