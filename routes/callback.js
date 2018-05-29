@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var request = require('request');
 var app = express();
 
-exports.reply = function(req, res){
+exports.reply = function(req, res, next){
     res.status(200).end();
     for (var event of req.body.events){
         if (event.type == 'message' && event.message.text == 'ハロー'){
