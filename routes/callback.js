@@ -1,4 +1,4 @@
-const LINE_CHANNEL_ACCESS_TOKEN = 'NygnlU++I/GLjL2iAuzzZSN608QfhfCDEke8TWjgpobo42Lrc+nl76tRyL/5k7lcVSE6yYasUIz0Bwx3Jc4l/kthxDkDaUS3Zw5HBl7KZG++zRURPQDJxk/hBkHurVYiCZNgP3acAfps4+x4zJinRAdB04t89/1O/w1cDnyilFU=';
+const LINE_CHANNEL_ACCESS_TOKEN = 'H8/A36FQTp9n8I4hYhZBBj3lpEN1+449PCHEgO2kmZjdEnQrkCaEbCKTz4C3vkMbvObpRDIj5tsZfwy1XA6bNVbkee0u6KAwdsPIzZD6891ZLWxzutbmkOsctnFEcwojBFloQnQsPZraboxudqsodgdB04t89/1O/w1cDnyilFU=';
 
 exports.reply = function(req, res, next){
     var express = require('express');
