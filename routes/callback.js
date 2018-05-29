@@ -28,6 +28,28 @@ exports.reply = function(req, res, next){
             });
         }
 
+        if (event.type == 'message' && event.message.text == '娯楽'){
+            var headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+            }
+            var body = {
+                replyToken: event.replyToken,
+                messages: [{
+                    type: 'text',
+                    text: '金額を入力してね♩'
+                }]
+            }
+            var url = 'https://api.line.me/v2/bot/message/reply';
+            request({
+                url: url,
+                method: 'POST',
+                headers: headers,
+                body: body,
+                json: true
+            });
+        }
+
         if (event.type == 'message' && event.message.text == 'ショッピング'){
 
             var headers = {
