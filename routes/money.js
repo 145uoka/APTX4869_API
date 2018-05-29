@@ -11,24 +11,23 @@ exports.create = function(req, res){
 	var decoder = new StringDecoder('utf8');
 
 	// 送信データ作成
-	var json_data = {
-	    userId: '1',
-	    moneyReceptionDate: '2018-05-28',
-	    moneyReceptinFlag: 'true',
-	    amount: '190000',
-	    genreId: '1',
-	    supplement: 'のーどじぇいえす'
-
-	}
-	var qs_data = querystring.stringify(json_data);
+		   var jsonData = {
+	           userId:"1",
+	           moneyReceptionDate:"2018/05/28",
+	           moneyReceptionFlag:"true",
+	           amount:"190000",
+	           genreId:"1",
+	           supplement:"のーどじぇいえす"
+	           }
+	var qs_data = JSON.stringify(jsonData)
+	console.log(qs_data);
 	var options = {
-	    hostname: 'localhost',
-	    port: 9090,
-	    path: '/Aptx4869/money/detail',
-	    method: 'GET',
+	    hostname: '192.168.50.5',
+	    port: 8080,
+	    path: '/APTX4869/api/moneyReception/store',
+	    method: 'POST',
 	    headers: {
-	    'Content-Type': 'application/json',
-	    'Content-Length': Buffer.byteLength(qs_data)
+	    'Content-Type': 'application/json'
 	    }
 	};
 
