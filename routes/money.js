@@ -3,6 +3,8 @@
  * GET home page.
  */
 
+http.createServer(function (req, res ){
+
 exports.create = function(req, res){
 
 	var http = require("http");
@@ -64,7 +66,6 @@ exports.create = function(req, res){
 	req.write(qs_data);
 	req.end();
 
-	res.writeHead(200,{'Content-Type': 'text/plain'});
-	res.write(apiRes);
-	res.end();
-};
+	res.send("respond create with a resource");
+	};
+});
