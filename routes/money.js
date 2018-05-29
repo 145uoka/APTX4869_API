@@ -3,8 +3,6 @@
  * GET home page.
  */
 
-http.createServer(function (req, res ){
-
 exports.create = function(req, res){
 
 	var http = require("http");
@@ -67,5 +65,4 @@ exports.create = function(req, res){
 	req.end();
 
 	res.send("respond create with a resource");
-	};
-});
+};
