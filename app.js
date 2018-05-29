@@ -7,6 +7,7 @@ var express = require('express')
   , routes = require('./routes')
   , user = require('./routes/user')
   , callback = require('./routes/callback')
+  , money = require('./routes/money')
   , http = require('http')
   , path = require('path');
 
@@ -32,6 +33,9 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/users/create', user.create);
 app.post('/callback', callback.reply);
+app.get('/money/create', money.create);
+
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
