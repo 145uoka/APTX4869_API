@@ -8,6 +8,7 @@
     "dependencies": {
         "ejs": "*",
         "express": "3.2.6",
-        "body-parser": "*"
+        "body-parser": "*",
+        "request": "*"
     }
 }
