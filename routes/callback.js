@@ -6,6 +6,7 @@ exports.reply = function(req, res, next){
     var app = express();
     res.status(200).end();
     for (var event of req.body.events){
+    	console.log(event);
         if (event.type == 'message' && event.message.text == '食費'){
             var headers = {
                 'Content-Type': 'application/json',
@@ -26,6 +27,7 @@ exports.reply = function(req, res, next){
                 body: body,
                 json: true
             });
+            global.genreMap.set("1", "1");
         }
 
         if (event.type == 'message' && event.message.text == '娯楽'){

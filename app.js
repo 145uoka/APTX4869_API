@@ -37,4 +37,8 @@ app.get('/money/create', money.create);
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
+  if (global.genreMap === undefined) {
+	     global.genreMap = new Map();
+	 }
 });
+
