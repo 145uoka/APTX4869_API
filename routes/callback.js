@@ -180,9 +180,6 @@ exports.reply = function(req, res, next){
 						json: true
 					});
 
-					var exports_function = require('/routes/money');
-					exports_function.create;
-
 					var express = require('express')
 					  , money = require('./money')
 
@@ -200,14 +197,6 @@ exports.reply = function(req, res, next){
 
 					app.get('/money/create', money.create);
 
-					http.createServer(app).listen(app.get('port'), function(){
-					  console.log('Express server listening on port ' + app.get('port'));
-					  if (global.genreMap === undefined) {
-						     global.genreMap = new Map();
-						 }
-
-
-					});
 				break;
 
 			case "2":
