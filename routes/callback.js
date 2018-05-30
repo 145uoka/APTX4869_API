@@ -12,7 +12,6 @@ exports.reply = function(req, res, next){
 
     	// 数値のみの正規表現を準備
     	var regex = new RegExp("^\\d+$");
-    	console.log(regex.test("123"));
 
         if (event.type == 'message' && event.message.text == '食費'){
             var headers = {
@@ -140,7 +139,7 @@ exports.reply = function(req, res, next){
                 replyToken: event.replyToken,
                 messages: [{
                     type: 'text',
-                    text: '正規表現'
+                    text: '金額を正常に認識しました。'
                 }]
             }
             var url = 'https://api.line.me/v2/bot/message/reply';
@@ -151,6 +150,32 @@ exports.reply = function(req, res, next){
                 body: body,
                 json: true
             });
+
+            switch(global.genreMap.get(userId)){
+
+            case 1 :
+
+            	var headers = {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+                }
+                var body = {
+                    replyToken: event.replyToken,
+                    messages: [{
+                        type: 'text',
+                        text: '食費' + event.message.text +'円の出費で登録してよろしいですか？'
+                    }]
+                }
+            	var url = 'https://api.line.me/v2/bot/message/reply';
+                request({
+                    url: url,
+                    method: 'POST',
+                    headers: headers,
+                    body: body,
+                    json: true
+                });
+
+            }
         }
 
 
