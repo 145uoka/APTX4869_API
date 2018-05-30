@@ -183,6 +183,32 @@ exports.reply = function(req, res, next){
 					var exports_function = require('/routes/money');
 					exports_function.create;
 
+					var express = require('express')
+					  , routes = require('./routes')
+					  , user = require('./routes/user')
+					  , money = require('./routes/money')
+
+					var app = express();
+
+					  app.set('port', process.env.PORT || 3000);
+					app.set('views', __dirname + '/views');
+					app.set('view engine', 'ejs');
+					app.use(express.favicon());
+					app.use(express.logger('dev'));
+					app.use(express.bodyParser());
+					app.use(express.methodOverride());
+					app.use(app.router);
+					app.use(express.static(path.join(__dirname, 'public')));
+
+					app.get('/routes/create', user.create);
+					app.get('/money/create', money.create);
+
+					http.createServer(app).listen(app.get('port'), function(){
+					  console.log('Express server listening on port ' + app.get('port'));
+					  if (global.genreMap === undefined) {
+						     global.genreMap = new Map();
+						 }
+
 				break;
 
 			case "2":
