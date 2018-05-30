@@ -131,11 +131,11 @@ exports.reply = function(req, res, next){
         if(regex.test(event.message.text)){
           console.log(regex.test(event.message.text));
 
-          switch(!global.genreMap.get(userId)){
+          switch(global.genreMap.get(userId)){
             case "食費":
               var headers = {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+                'Authorization': 'Bearer' + LINE_CHANNEL_ACCESS_TOKEN
               }
               var body = {
                 replyToken: event.replyToken,
