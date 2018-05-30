@@ -61,5 +61,5 @@ exports.create = function(req, res){
 	req.write(qs_data);
 	req.end();
 
-	res.send("respond create with a resource");
+//	res.send("respond create with a resource");
 };
