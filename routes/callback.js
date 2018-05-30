@@ -31,6 +31,8 @@ exports.reply = function(req, res, next){
                 json: true
             });
             global.genreMap.set(userId, "1");
+            var regex = new RegExp("^\d+$");
+            console.log(regex.test(event.message.text));
         }
 
         if (event.type == 'message' && event.message.text == '娯楽'){
@@ -121,5 +123,18 @@ exports.reply = function(req, res, next){
                 json: true
             });
         }
+
+        if(regex.test(event.message.text)){
+
+        switch(!global.genreMap.get(userId)){
+        case "食費":break;
+        case "娯楽":break;
+        case "ショッピング":break;
+        case "交通費":break;
+        case "生活費":break;
+        default:break;
+        }
+        }
+
     }
   };
