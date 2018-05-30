@@ -13,11 +13,9 @@ exports.create = function(req, res){
 	// 送信データ作成
 		   var jsonData = {
 	           userId:"1",
-	           moneyReceptionDate:"2018/05/28",
 	           moneyReceptionFlag:"true",
 	           amount:"190000",
 	           genreId:"1",
-	           supplement:"のーどじぇいえす"
 	           }
 	var qs_data = JSON.stringify(jsonData)
 	console.log(qs_data);
