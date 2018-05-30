@@ -7,6 +7,7 @@ exports.reply = function(req, res, next){
     res.status(200).end();
     for (var event of req.body.events){
 
+    	// LINEIDを準備
     	var userId =event.source.userId;
 
     	// 数値のみの正規表現を準備
@@ -128,7 +129,27 @@ exports.reply = function(req, res, next){
             global.genreMap.set(userId, "5");
         }
 
-
+        if (event.type == 'message' && regex.test(event.message.text)){
+            var headers = {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+            }
+            var body = {
+                replyToken: event.replyToken,
+                messages: [{
+                    type: 'text',
+                    text: '金額を入力してね♩'
+                }]
+            }
+            var url = 'https://api.line.me/v2/bot/message/reply';
+            request({
+                url: url,
+                method: 'POST',
+                headers: headers,
+                body: body,
+                json: true
+            });
+        }
 
 
 //            switch(global.genreMap.get(userId)){
