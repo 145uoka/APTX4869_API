@@ -129,7 +129,7 @@ exports.reply = function(req, res, next){
             global.genreMap.set(userId, "5");
         }
 
-        if (event.type == 'message' && regex.test(event.message.text)){
+        if (event.type == 'message' && event.message.text == '生活費'){
             var headers = {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
@@ -138,7 +138,7 @@ exports.reply = function(req, res, next){
                 replyToken: event.replyToken,
                 messages: [{
                     type: 'text',
-                    text: '金額を入力してね♩'
+                    text: '文字を認識したよ！♩'
                 }]
             }
             var url = 'https://api.line.me/v2/bot/message/reply';
