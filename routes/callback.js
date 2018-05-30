@@ -180,22 +180,9 @@ exports.reply = function(req, res, next){
 						json: true
 					});
 
-					var express = require('express')
-					  , money = require('./money')
+					var exports_function = require('./money');
+					exports_function.create;
 
-					var app = express();
-
-					  app.set('port', process.env.PORT || 3000);
-					app.set('views', __dirname + '/views');
-					app.set('view engine', 'ejs');
-					app.use(express.favicon());
-					app.use(express.logger('dev'));
-					app.use(express.bodyParser());
-					app.use(express.methodOverride());
-					app.use(app.router);
-					app.use(express.static(path.join(__dirname, 'public')));
-
-					app.get('/money/create', money.create);
 
 				break;
 
