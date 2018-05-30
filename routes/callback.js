@@ -12,6 +12,7 @@ exports.reply = function(req, res, next){
 
     	// 数値のみの正規表現を準備
     	var regex = new RegExp("^\d+$");
+    	console.log(regex.test("123"));
 
         if (event.type == 'message' && event.message.text == '食費'){
             var headers = {
@@ -105,7 +106,7 @@ exports.reply = function(req, res, next){
             });
             global.genreMap.set(userId, "4");
         }
-        if (event.type == 'message' && regex.test(event.message.text)){
+        if (event.type == 'message' && event.message.text == '生活費'){
         	regex.test(event.message.text)
 
             var headers = {
@@ -130,7 +131,7 @@ exports.reply = function(req, res, next){
             global.genreMap.set(userId, "5");
         }
 
-        if (event.type == 'message' && event.message.text == '生活費'){
+        if (event.type == 'message' && regex.test(event.message.text)){
             var headers = {
                 'Content-Type': 'application/json',
                 'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
@@ -139,7 +140,7 @@ exports.reply = function(req, res, next){
                 replyToken: event.replyToken,
                 messages: [{
                     type: 'text',
-                    text: '文字を認識したよ！♩'
+                    text: '正規表現'
                 }]
             }
             var url = 'https://api.line.me/v2/bot/message/reply';
