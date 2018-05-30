@@ -32,7 +32,7 @@ exports.reply = function(req, res, next){
             });
             global.genreMap.set(userId, "1");
             var regex = new RegExp("^\d+$");
-            console.log(regex.test(event.message.text));
+            console.log(!regex.test(event.message.text));
         }
 
         if (event.type == 'message' && event.message.text == '娯楽'){
