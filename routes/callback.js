@@ -182,7 +182,7 @@ exports.reply = function(req, res, next){
 
 
 					var exports_function = require('./money');
-					exports_function.create('/money/create',./money.create);
+					exports_function.create('/money/create','./money.create');
 
 
 				break;
