@@ -8,7 +8,6 @@ exports.reply = function(req, res, next){
     for (var event of req.body.events){
 
     	var userId =event.source.userId;
-    	 console.log(userId);
 
         if (event.type == 'message' && event.message.text == '食費'){
             var headers = {
