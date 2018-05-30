@@ -186,7 +186,7 @@ exports.reply = function(req, res, next){
 					var express = require('express')
 					  , routes = require('./routes')
 					  , user = require('./routes/user')
-					  , money = require('./routes/money')
+					  , money = require('./money')
 
 					var app = express();
 
