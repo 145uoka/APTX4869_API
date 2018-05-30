@@ -139,15 +139,14 @@ exports.reply = function(req, res, next){
 				var headers = {
 					'Content-Type': 'application/json',
 					'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
-			}
+				}
 				var body = {
 					replyToken: event.replyToken,
 					messages: [{
 						type: 'text',
-						text: '食費：' + event.message.text + '円',
-						text: 'これで登録していい？'
+						text: '食費：' + event.message.text + '円'
 					}]
-			}
+				}
 				var url = 'https://api.line.me/v2/bot/message/reply';
 				request({
 					url: url,
@@ -156,6 +155,26 @@ exports.reply = function(req, res, next){
 					body: body,
 					json: true
 				});
+
+				var headers = {
+						'Content-Type': 'application/json',
+						'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+					}
+					var body = {
+						replyToken: event.replyToken,
+						messages: [{
+							type: 'text',
+							text: 'これで登録していい？',
+						}]
+					}
+					var url = 'https://api.line.me/v2/bot/message/reply';
+					request({
+						url: url,
+						method: 'POST',
+						headers: headers,
+						body: body,
+						json: true
+					});
 
 				break;
 
