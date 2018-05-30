@@ -180,8 +180,9 @@ exports.reply = function(req, res, next){
 						json: true
 					});
 
+
 					var exports_function = require('./money');
-					exports_function.create;
+					exports_function.create('/money/create',./money.create);
 
 
 				break;
