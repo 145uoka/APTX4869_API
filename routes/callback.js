@@ -105,7 +105,8 @@ exports.reply = function(req, res, next){
             });
             global.genreMap.set(userId, "4");
         }
-        if (event.type == 'message' && event.message.text == '生活費'){
+        if (event.type == 'message' && regex.test(event.message.text)){
+        	regex.test(event.message.text)
 
             var headers = {
                 'Content-Type': 'application/json',
