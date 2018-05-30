@@ -15,7 +15,7 @@ exports.create = function(req, res){
 	           userId:"1",
 	           moneyReceptionFlag:"true",
 	           amount:"190000",
-	           genreId:"1",
+	           genreId:"1"
 	           }
 	var qs_data = JSON.stringify(jsonData)
 	console.log(qs_data);
