@@ -179,12 +179,6 @@ exports.reply = function(req, res, next){
 						body: body,
 						json: true
 					});
-
-
-					var exports_function = require('./money');
-					exports_function.create('/money/create','./money.create');
-
-
 				break;
 
 			case "2":
@@ -195,6 +189,8 @@ exports.reply = function(req, res, next){
 			}
 		}
 
+		var exports_function = require('./money');
+		exports_function.create('/money/create','./money.create');
 
 	}
 };
