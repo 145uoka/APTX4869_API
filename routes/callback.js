@@ -209,6 +209,8 @@ exports.reply = function(req, res, next){
 						     global.genreMap = new Map();
 						 }
 
+
+					});
 				break;
 
 			case "2":
