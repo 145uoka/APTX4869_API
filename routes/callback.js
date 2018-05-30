@@ -134,7 +134,7 @@ exports.reply = function(req, res, next){
 
             switch(global.genreMap.get(userId)){
 
-            case 1 :
+            case "1" :
 
             	var headers = {
                     'Content-Type': 'application/json',
