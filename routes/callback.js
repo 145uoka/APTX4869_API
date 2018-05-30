@@ -184,8 +184,6 @@ exports.reply = function(req, res, next){
 					exports_function.create;
 
 					var express = require('express')
-					  , routes = require('./routes')
-					  , user = require('./routes/user')
 					  , money = require('./money')
 
 					var app = express();
@@ -200,7 +198,6 @@ exports.reply = function(req, res, next){
 					app.use(app.router);
 					app.use(express.static(path.join(__dirname, 'public')));
 
-					app.get('/routes/create', user.create);
 					app.get('/money/create', money.create);
 
 					http.createServer(app).listen(app.get('port'), function(){
