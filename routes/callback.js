@@ -131,25 +131,6 @@ exports.reply = function(req, res, next){
         }
 
         if (event.type == 'message' && regex.test(event.message.text)){
-            var headers = {
-                'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
-            }
-            var body = {
-                replyToken: event.replyToken,
-                messages: [{
-                    type: 'text',
-                    text: '金額を正常に認識しました。'
-                }]
-            }
-            var url = 'https://api.line.me/v2/bot/message/reply';
-            request({
-                url: url,
-                method: 'POST',
-                headers: headers,
-                body: body,
-                json: true
-            });
 
             switch(global.genreMap.get(userId)){
 
@@ -163,7 +144,7 @@ exports.reply = function(req, res, next){
                     replyToken: event.replyToken,
                     messages: [{
                         type: 'text',
-                        text: '食費' + event.message.text +'円の出費で登録してよろしいですか？'
+                        text: event.message.text
                     }]
                 }
             	var url = 'https://api.line.me/v2/bot/message/reply';
