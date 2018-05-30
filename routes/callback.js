@@ -11,7 +11,7 @@ exports.reply = function(req, res, next){
     	var userId =event.source.userId;
 
     	// 数値のみの正規表現を準備
-    	var regex = new RegExp("^\d+$");
+    	var regex = new RegExp("^\\d+$");
     	console.log(regex.test("123"));
 
         if (event.type == 'message' && event.message.text == '食費'){
