@@ -144,7 +144,7 @@ exports.reply = function(req, res, next){
                     replyToken: event.replyToken,
                     messages: [{
                         type: 'text',
-                        text: event.message.text
+                        text: '食費で' + event.message.text + '円の支出で登録するよ！'
                     }]
                 }
             	var url = 'https://api.line.me/v2/bot/message/reply';
