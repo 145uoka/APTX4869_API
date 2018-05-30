@@ -164,7 +164,7 @@ exports.reply = function(req, res, next){
 						replyToken: event.replyToken,
 						messages: [{
 							type: 'text',
-							text: 'これで登録していい？',
+							text: 'これで登録していい？'
 						}]
 					}
 					var url = 'https://api.line.me/v2/bot/message/reply';
