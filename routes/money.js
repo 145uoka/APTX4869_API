@@ -65,7 +65,7 @@ exports.create = function(req, res){
 };
 
 
-exports.post = function(req, res){
+exports.post = function(){
 	var webclient = require("request");
 
 	var jsonData = {
@@ -76,7 +76,7 @@ exports.post = function(req, res){
 	}
 
 	   webclient.post({
-	     url: "https://aptx4869web.herokuapp.com//api/moneyReception/store",
+	     url: "https://aptx4869web.herokuapp.com/api/moneyReception/store",
 	     headers: {
 	       "content-type": "application/json"
 	     },
