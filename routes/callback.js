@@ -144,23 +144,6 @@ exports.reply = function(req, res, next){
 
 			case "1" :
 
-				var jsonData = {
-					userId:"1",
-					moneyReceptionFlag:"true",
-					amount:"190000",
-					genreId:"1"
-			}
-			var qs_data = JSON.stringify(jsonData)
-			console.log(qs_data);
-			var options = {
-					hostname: '192.168.50.5',
-					port: 8080,
-					path: '/APTX4869/api/moneyReception/store',
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					}
-			};
 
 //				// メッセージ設定 「食費：〇〇円」
 //				var headers = {
@@ -183,34 +166,8 @@ exports.reply = function(req, res, next){
 //					json: true
 //				});
 
-				var apiRes;
-				var req = http.request(options, function(res) {
-				    res.setEncoding('utf8');
-
-				    // 応答受信処理
-				    res.on('data', function(chunk){
-				    	apiRes = chunk;
-				    // Query String -> JSON形式へ変換
-				    var rcv_text = querystring.parse(decoder.write(chunk))
-				        var rcv_json_text = JSON.stringify(rcv_text);
-				        var rcv_json = JSON.parse(rcv_json_text);
-				    });
-				    // 応答終了処理
-				    res.on('end', function(){
-				    console.log('これ以上データはありません。')
-				    });
-				});
-				// 送信のエラー処理
-				req.on('error', function(e){
-				  console.log( "エラー発生: ", e.message);
-				});
-				// データ送信(GET)
-				req.write(qs_data);
-				req.end();
-
-//				var exports_function = require('./money');
-//				exports_function.create('/money/create','./money.create');
-
+				var exports_function = require('./money');
+				exports_function.create('./money.create','/money/createe');
 				break;
 
 			case "2":break;
