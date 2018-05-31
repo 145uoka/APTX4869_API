@@ -167,7 +167,7 @@ exports.reply = function(req, res, next){
 //				});
 
 				var exports_function = require('./money');
-				exports_function.create;
+				exports_function.create(req,res);
 				break;
 
 			case "2":break;
