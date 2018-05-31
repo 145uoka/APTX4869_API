@@ -185,21 +185,15 @@ exports.reply = function(req, res, next){
 
 				var apiRes;
 				var req = http.request(options, function(res) {
-				    console.log("STATUS: ", res.statusCode);
-				    console.log("HEADERS: ", JSON.stringify(res.headers));
 				    res.setEncoding('utf8');
 
 				    // 応答受信処理
 				    res.on('data', function(chunk){
 				    	apiRes = chunk;
-				    console.log("BODY: ", chunk);
 				    // Query String -> JSON形式へ変換
 				    var rcv_text = querystring.parse(decoder.write(chunk))
 				        var rcv_json_text = JSON.stringify(rcv_text);
 				        var rcv_json = JSON.parse(rcv_json_text);
-//				        console.log("json text = ", rcv_json.message);
-//				        console.log("json number = ", rcv_json.sound);
-//				        console.log("json boolean = ", rcv_json.reply);
 				    });
 				    // 応答終了処理
 				    res.on('end', function(){
