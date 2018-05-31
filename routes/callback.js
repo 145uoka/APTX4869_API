@@ -162,26 +162,26 @@ exports.reply = function(req, res, next){
 					}
 			};
 
-				// メッセージ設定 「食費：〇〇円」
-				var headers = {
-					'Content-Type': 'application/json',
-					'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
-				}
-				var body = {
-					replyToken: event.replyToken,
-					messages: [{
-						type: 'text',
-						text: '食費：' + amount + '円'
-					}]
-				}
-				var url = 'https://api.line.me/v2/bot/message/reply';
-				request({
-					url: url,
-					method: 'POST',
-					headers: headers,
-					body: body,
-					json: true
-				});
+//				// メッセージ設定 「食費：〇〇円」
+//				var headers = {
+//					'Content-Type': 'application/json',
+//					'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+//				}
+//				var body = {
+//					replyToken: event.replyToken,
+//					messages: [{
+//						type: 'text',
+//						text: '食費：' + amount + '円'
+//					}]
+//				}
+//				var url = 'https://api.line.me/v2/bot/message/reply';
+//				request({
+//					url: url,
+//					method: 'POST',
+//					headers: headers,
+//					body: body,
+//					json: true
+//				});
 
 				var apiRes;
 				var req = http.request(options, function(res) {
