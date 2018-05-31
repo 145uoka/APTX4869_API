@@ -44,9 +44,9 @@ exports.create = function(req, res){
 	    var rcv_text = querystring.parse(decoder.write(chunk))
 	        var rcv_json_text = JSON.stringify(rcv_text);
 	        var rcv_json = JSON.parse(rcv_json_text);
-//	        console.log("json text = ", rcv_json.message);
-//	        console.log("json number = ", rcv_json.sound);
-//	        console.log("json boolean = ", rcv_json.reply);
+	        console.log("json text = ", rcv_json.message);
+	        console.log("json number = ", rcv_json.sound);
+	        console.log("json boolean = ", rcv_json.reply);
 	    });
 	    // 応答終了処理
 	    res.on('end', function(){
@@ -61,5 +61,5 @@ exports.create = function(req, res){
 	req.write(qs_data);
 	req.end();
 
-//	res.send("respond create with a resource");
+	res.send("respond create with a resource");
 };

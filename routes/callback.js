@@ -145,35 +145,131 @@ exports.reply = function(req, res, next){
 			case "1" :
 
 
-//				// メッセージ設定 「食費：〇〇円」
-//				var headers = {
-//					'Content-Type': 'application/json',
-//					'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
-//				}
-//				var body = {
-//					replyToken: event.replyToken,
-//					messages: [{
-//						type: 'text',
-//						text: '食費：' + amount + '円'
-//					}]
-//				}
-//				var url = 'https://api.line.me/v2/bot/message/reply';
-//				request({
-//					url: url,
-//					method: 'POST',
-//					headers: headers,
-//					body: body,
-//					json: true
-//				});
+				// メッセージ設定 「食費：〇〇円」
+				var headers = {
+					'Content-Type': 'application/json',
+					'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+				}
+				var body = {
+					replyToken: event.replyToken,
+					messages: [{
+						type: 'text',
+						text: '食費：' + amount + '円'
+					}]
+				}
+				var url = 'https://api.line.me/v2/bot/message/reply';
+				request({
+					url: url,
+					method: 'POST',
+					headers: headers,
+					body: body,
+					json: true
+				});
 
 				var exports_function = require('./money');
-				exports_function.create('./callback','./money.create');
+				exports_function.create();
 				break;
 
-			case "2":break;
-			case "3":break;
-			case "4":break;
-			case "5":break;
+			case "2":
+
+				// メッセージ設定 「娯楽：〇〇円」
+				var headers = {
+					'Content-Type': 'application/json',
+					'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+				}
+				var body = {
+					replyToken: event.replyToken,
+					messages: [{
+						type: 'text',
+						text: '娯楽：' + amount + '円'
+					}]
+				}
+				var url = 'https://api.line.me/v2/bot/message/reply';
+				request({
+					url: url,
+					method: 'POST',
+					headers: headers,
+					body: body,
+					json: true
+				});
+
+				break;
+
+			case "3":
+
+				// メッセージ設定 「ショッピング：〇〇円」
+				var headers = {
+					'Content-Type': 'application/json',
+					'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+				}
+				var body = {
+					replyToken: event.replyToken,
+					messages: [{
+						type: 'text',
+						text: 'ショッピング：' + amount + '円'
+					}]
+				}
+				var url = 'https://api.line.me/v2/bot/message/reply';
+				request({
+					url: url,
+					method: 'POST',
+					headers: headers,
+					body: body,
+					json: true
+				});
+
+
+			break;
+			case "4":
+
+				// メッセージ設定 「交通費：〇〇円」
+				var headers = {
+					'Content-Type': 'application/json',
+					'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+				}
+				var body = {
+					replyToken: event.replyToken,
+					messages: [{
+						type: 'text',
+						text: '交通費：' + amount + '円'
+					}]
+				}
+				var url = 'https://api.line.me/v2/bot/message/reply';
+				request({
+					url: url,
+					method: 'POST',
+					headers: headers,
+					body: body,
+					json: true
+				});
+
+				break;
+
+			case "5":
+
+				// メッセージ設定 「生活費：〇〇円」
+				var headers = {
+					'Content-Type': 'application/json',
+					'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+				}
+				var body = {
+					replyToken: event.replyToken,
+					messages: [{
+						type: 'text',
+						text: '生活費：' + amount + '円'
+					}]
+				}
+				var url = 'https://api.line.me/v2/bot/message/reply';
+				request({
+					url: url,
+					method: 'POST',
+					headers: headers,
+					body: body,
+					json: true
+				});
+
+				break;
+
 			default:break;
 			}
 		}
