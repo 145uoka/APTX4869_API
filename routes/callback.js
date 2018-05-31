@@ -1,5 +1,6 @@
 const LINE_CHANNEL_ACCESS_TOKEN = 'H8/A36FQTp9n8I4hYhZBBj3lpEN1+449PCHEgO2kmZjdEnQrkCaEbCKTz4C3vkMbvObpRDIj5tsZfwy1XA6bNVbkee0u6KAwdsPIzZD6891ZLWxzutbmkOsctnFEcwojBFloQnQsPZraboxudqsodgdB04t89/1O/w1cDnyilFU=';
 exports.reply = function(req, res, next){
+	var http = require("http");
 	var express = require('express');
 	var bodyParser = require('body-parser');
 	var request = require('request');
