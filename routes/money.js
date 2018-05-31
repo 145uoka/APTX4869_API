@@ -63,3 +63,25 @@ exports.create = function(req, res){
 
 	res.send("respond create with a resource");
 };
+
+
+exports.post = function(req, res){
+	var webclient = require("request");
+
+	var jsonData = {
+			userId:"1",
+			moneyReceptionFlag:"true",
+			amount:"190000",
+			genreId:"1"
+	}
+
+	   webclient.post({
+	     url: "https://aptx4869web.herokuapp.com//api/moneyReception/store",
+	     headers: {
+	       "content-type": "application/json"
+	     },
+	     body: JSON.stringify(jsonData)
+	   }, function (error, response, body){
+	     console.log(body);
+	   });
+}
