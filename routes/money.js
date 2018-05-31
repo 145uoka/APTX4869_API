@@ -11,22 +11,22 @@ exports.create = function(req, res){
 	var decoder = new StringDecoder('utf8');
 
 	// 送信データ作成
-		   var jsonData = {
-	           userId:"1",
-	           moneyReceptionFlag:"true",
-	           amount:"190000",
-	           genreId:"1"
-	           }
+	var jsonData = {
+			userId:"1",
+			moneyReceptionFlag:"true",
+			amount:"190000",
+			genreId:"1"
+	}
 	var qs_data = JSON.stringify(jsonData)
 	console.log(qs_data);
 	var options = {
-	    hostname: '192.168.50.5',
-	    port: 8080,
-	    path: '/APTX4869/api/moneyReception/store',
-	    method: 'POST',
-	    headers: {
-	    'Content-Type': 'application/json'
-	    }
+			hostname: '192.168.50.5',
+			port: 8080,
+			path: '/APTX4869/api/moneyReception/store',
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			}
 	};
 
 	// リクエスト定義と応答処理設定
@@ -44,9 +44,9 @@ exports.create = function(req, res){
 	    var rcv_text = querystring.parse(decoder.write(chunk))
 	        var rcv_json_text = JSON.stringify(rcv_text);
 	        var rcv_json = JSON.parse(rcv_json_text);
-	        console.log("json text = ", rcv_json.message);
-	        console.log("json number = ", rcv_json.sound);
-	        console.log("json boolean = ", rcv_json.reply);
+//	        console.log("json text = ", rcv_json.message);
+//	        console.log("json number = ", rcv_json.sound);
+//	        console.log("json boolean = ", rcv_json.reply);
 	    });
 	    // 応答終了処理
 	    res.on('end', function(){
