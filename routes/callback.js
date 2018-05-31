@@ -69,7 +69,7 @@ exports.reply = function(req, res, next){
 					replyMessage = '食費：' + amount + '円';
 
 					var exports_function = require('./money');
-					exports_function.post();
+					exports_function.post(amount,global.genreMap.get(userId));
 					break;
 
 				case "2":

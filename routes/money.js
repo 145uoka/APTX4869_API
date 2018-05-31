@@ -65,14 +65,14 @@ exports.create = function(req, res){
 };
 
 
-exports.post = function(){
+exports.post = function(amount,genreId){
 	var webclient = require("request");
 
 	var jsonData = {
 			userId:"1",
 			moneyReceptionFlag:"true",
-			amount:"190000",
-			genreId:"1"
+			amount:amount,
+			genreId:genreId
 	}
 
 	   webclient.post({
