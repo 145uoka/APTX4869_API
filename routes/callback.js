@@ -160,25 +160,29 @@ exports.reply = function(req, res, next){
 				});
 
 				// メッセージ設定「これで登録していい？」
-				var headers = {
-						'Content-Type': 'application/json',
-						'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
-					}
-					var body = {
-						replyToken: event.replyToken,
-						messages: [{
-							type: 'text',
-							text: 'これで登録していい？'
-						}]
-					}
-					var url = 'https://api.line.me/v2/bot/message/reply';
-					request({
-						url: url,
-						method: 'POST',
-						headers: headers,
-						body: body,
-						json: true
-					});
+//				var headers = {
+//						'Content-Type': 'application/json',
+//						'Authorization': 'Bearer ' + LINE_CHANNEL_ACCESS_TOKEN
+//					}
+//					var body = {
+//						replyToken: event.replyToken,
+//						messages: [{
+//							type: 'text',
+//							text: 'これで登録していい？'
+//						}]
+//					}
+//					var url = 'https://api.line.me/v2/bot/message/reply';
+//					request({
+//						url: url,
+//						method: 'POST',
+//						headers: headers,
+//						body: body,
+//						json: true
+//					});
+
+				var exports_function = require('./money');
+				exports_function.create('/money/create','./money.create');
+
 				break;
 
 			case "2":
@@ -188,10 +192,6 @@ exports.reply = function(req, res, next){
 			default:break;
 			}
 		}
-
-		var exports_function = require('./money');
-		exports_function.create('/money/create','./money.create');
-
 
 	}
 };
