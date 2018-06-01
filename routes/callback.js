@@ -20,6 +20,7 @@ exports.reply = function(req, res, next){
 
 		// LINEIDを準備
 		var userId =event.source.userId;
+		console.log("★★★★★★★★★★★★★★★★★★★★★★★★★★★★★★" + userId);
 
 		// 数値のみの正規表現を準備
 		var regex = new RegExp("^\\d+$");
