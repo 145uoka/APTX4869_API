@@ -62,41 +62,41 @@ exports.reply = function(req, res, next){
 				// 数字だったら
 				var amount = event.message.text;
 
-				switch(global.genreMap.get(userId)){
+				var genreId = global.genreMap.get(userId);
+				var isRegister = false;
+				switch(genreId){
 
 				case "1" :
 
 					// メッセージ設定 「食費：〇〇円」
 					replyMessage = '食費：' + amount + '円';
-
-					var exports_function = require('./money');
-					exports_function.post(amount,global.genreMap.get(userId),userId);
+					isRegister = true;
 					break;
 
 				case "2":
 
-//					// メッセージ設定 「娯楽：〇〇円」
+					// メッセージ設定 「娯楽：〇〇円」
 					replyMessage = '娯楽：' + amount + '円';
-					break;
+					isRegister = true;
+                    break;
 
 				case "3":
 					replyMessage = 'ショッピング' + amount + '円';
-
-					break;
+					isRegister = true;
+                    break;
 				case "4":
 					replyMessage = '交通費：' + amount + '円';
-
-					break;
-
+					isRegister = true;
+                    break;
 				case "5":
 					replyMessage = '生活費：' + amount + '円';
-
-					break;
+					isRegister = true;
+                    break;
 
 				default:break;
 				}
 			}
-			}
+		}
 
 		var body = {
 				replyToken: event.replyToken,
@@ -114,5 +114,10 @@ exports.reply = function(req, res, next){
 			body: body,
 			json: true
 		});
+
+		if (isRegister) {
+		    var exports_function = require('./money');
+	        exports_function.post(amount, genreId, userId);
+		}
 	}
 };
