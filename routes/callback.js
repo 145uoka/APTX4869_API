@@ -25,8 +25,8 @@ exports.reply = function(req, res, next){
 		// 数値のみの正規表現を準備
 		var regex = new RegExp("^\\d+$");
 
-
 		var replyMessage;
+		var isRegister = false;
 
 		if (event.type == 'message') {
 
@@ -63,7 +63,7 @@ exports.reply = function(req, res, next){
 				var amount = event.message.text;
 
 				var genreId = global.genreMap.get(userId);
-				var isRegister = false;
+
 				switch(genreId){
 
 				case "1" :
